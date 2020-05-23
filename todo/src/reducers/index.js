@@ -1,8 +1,10 @@
-export const initialState = {
-	item: " ",
-	completed: false,
-	id: Date.now(),
-};
+export const initialState = [
+	{
+		item: "",
+		completed: false,
+		id: Date.now(),
+	},
+];
 
 export const TodoReducer = (state, action) => {
 	switch (action.type) {
