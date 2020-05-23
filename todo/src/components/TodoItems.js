@@ -1,39 +1,14 @@
-import React, { useState } from "react";
-import { addTodoReducer, initialTodoState } from "../reducers/index";
+import React from "react";
+import Todo from "./Todo";
 
-const TodoItems = () => {
-	const [todo, setTodo] = useState("test");
-	const [newTodo, setNewTodo] = useState("");
-
-	const handleSubmit = (e) => {
-    e.preventDefault();
-    setTodo({setNewTodo})
-	};
-
-	const handleChanges = (e) => {
-    setNewTodo(e.target.value)
-    console.log('todo', e.target.value)
-  };
-
+const TodoItems = (props) => {
+	console.log('props', props)
 	return (
-		<>
-			<form className="todo_form">
-				<input
-					type="text"
-					name="addTodo"
-					placeholder="Add New Todo..."
-					onChange={handleChanges}
-					value={newTodo}></input>
-				<button type="submit" onSubmit={handleSubmit}>
-					Add
-				</button>
-			</form>
-			<div className="todo_list">
-				<ul>
-					<li>{todo}</li>
-				</ul>
-			</div>
-		</>
+		<div>
+			{props.state.map((item) => {
+				return <Todo item={item} key={item.id} />;
+			})}
+		</div>
 	);
 };
 
